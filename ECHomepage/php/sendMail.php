@@ -22,12 +22,14 @@ function IsInjected($str)
     return (preg_match($inject,$str));
 }
 
-$to      = 'leitung@ec-hormersdorf.de';
+$to      = 'kev.hormersdorf@gmail.com';
 $subject = $_POST['subject'];
 $message = $_POST['fname'] . " " . $_POST['lname'] . " wrote the following:" . "\r\n" . $_POST['message'];
 $message = filter_var($message, FILTER_SANITIZE_STRING);
 $message = wordwrap($message, 70, "\r\n");
-if (!IsInjected($_POST['email'])){
+$email  = $_POST['email'];
+$email  = sanitize_my_email($email);
+if (!IsInjected($email)){
     $headers = "Content-type: text/plain; charset=utf-8" . "\r\n" .
             $_POST['email'] . "\r\n" .
             'X-Mailer: PHP/' . phpversion();

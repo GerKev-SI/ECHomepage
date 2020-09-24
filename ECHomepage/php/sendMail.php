@@ -31,7 +31,7 @@ $email  = $_POST['email'];
 $email  = sanitize_my_email($email);
 if (!IsInjected($email)){
     $headers = "Content-type: text/plain; charset=utf-8" . "\r\n" .
-            $_POST['email'] . "\r\n" .
+            $email . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 }
 

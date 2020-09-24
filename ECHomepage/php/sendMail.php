@@ -2,11 +2,7 @@
 
 function sanitize_my_email($field) {
     $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-    if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
-        return false;
-    }
+    return (filter_var($field, FILTER_VALIDATE_EMAIL));
 }
 
 function IsInjected($str)
@@ -23,14 +19,7 @@ function IsInjected($str)
     $inject = join('|', $injections);
     $inject = "/$inject/i";
 
-    if(preg_match($inject,$str))
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    return (preg_match($inject,$str));
 }
 
 $to      = 'leitung@ec-hormersdorf.de';
@@ -54,7 +43,6 @@ if ($result){
     echo '<script type="text/javascript">';
     echo ' alert("Error sending message")';  //not showing an alert box.
     echo '</script>';
-
 }
 
 echo("<script>window.location = '../index.html';</script>");

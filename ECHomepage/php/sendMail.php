@@ -1,10 +1,5 @@
 <?php
 
-function sanitize_my_email($field) {
-    $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-    return (filter_var($field, FILTER_VALIDATE_EMAIL));
-}
-
 function IsInjected($str)
 {
     $injections = array('(\n+)',
@@ -27,8 +22,7 @@ $subject = $_POST['subject'];
 $message = $_POST['fname'] . " " . $_POST['lname'] . " wrote the following:" . "\r\n" . $_POST['message'];
 $message = filter_var($message, FILTER_SANITIZE_STRING);
 $message = wordwrap($message, 70, "\r\n");
-$email  = $_POST['email'];
-$email  = sanitize_my_email($email);
+$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 if (!IsInjected($email)){
     $headers = "Content-type: text/plain; charset=utf-8" . "\r\n" .
             $email . "\r\n" .

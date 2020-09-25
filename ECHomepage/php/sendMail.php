@@ -1,10 +1,5 @@
 <?php
 
-/*function sanitize_my_email($field) {
-    $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-    return (filter_var($field, FILTER_VALIDATE_EMAIL));
-} */
-
 function IsInjected($str)
 {
     $injections = array('(\n+)',

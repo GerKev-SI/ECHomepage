@@ -1,4 +1,9 @@
 <?php
+$message = "0";
+$email = "0";
+$subject = "0";
+$fname = "0";
+$lname = "0";
 
 function IsInjected($str)
 {
@@ -17,20 +22,34 @@ function IsInjected($str)
     return (preg_match($inject,$str));
 }
 
-$to      = 'kev.hormersdorf@gmail.com';
+$to      = 'leitung@ec-hormersdorf.de';
 $subject = $_POST['subject'];
-$message = $_POST['fname'] . " " . $_POST['lname'] . " wrote the following:" . "\r\n" . $_POST['message'];
-$message = filter_var($message, FILTER_SANITIZE_STRING);
+//ab hier nur fuer PHP <5.2
+if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['fname'])) {
+  if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['lname'])) {
+    if (preg_match("/^[a-zA-Z-_\,\.\!' \?]*$/",$_POST['message'])) {
+      $message = $_POST['fname'] . " " . $_POST['lname'] . " wrote the following:" . "\r\n" . $_POST['message'];
+    }
+  }
+}
+//$message = filter_var($message, FILTER_SANITIZE_STRING);
 $message = wordwrap($message, 70, "\r\n");
-$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
+//ab hier nur fuer PHP <5.2
+if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$_POST['email'])) {
+  $email = $_POST['email'];
+}
+//$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 if (!IsInjected($email)){
     $headers = "Content-type: text/plain; charset=utf-8" . "\r\n" .
             $email . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 }
 
-$result = mail($to, $subject, $message, $headers);
-//ob_start();
+if (!(empty($message) or empty($email))){
+  $result = mail($to, $subject, $message, $headers);
+}
+
 if ($result){
     echo '<script type="text/javascript">';
     echo ' alert("Message succesfully send")';  //not showing an alert box.
@@ -42,6 +61,4 @@ if ($result){
 }
 
 echo("<script>window.location = '../index.html';</script>");
-//header("Location: index.html");
-//ob_end_flush();
 ?>

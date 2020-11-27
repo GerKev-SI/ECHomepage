@@ -32,4 +32,4 @@ jobs:
           local-dir: ./ECHomepage/
           server-dir: /html/EC/
           exclude: prepos-6.config
-          dry-run: true
+          dry-run: false

@@ -22,6 +22,7 @@ function IsInjected($str)
     return (preg_match($inject,$str));
 }
 
+$from    = 'kontaktformular@ec-hormersdorf.de';
 $to      = 'leitung@ec-hormersdorf.de';
 $subject = $_POST['subject'];
 //ab hier nur fuer PHP <5.2
@@ -41,9 +42,10 @@ if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{
 }
 //$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 if (!IsInjected($email)){
-    $headers = "Content-type: text/plain; charset=utf-8" . "\r\n" .
-            $email . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+    $headers  = "Content-type: text/plain; charset=utf-8" . "\r\n".
+                "From: "         . $from                  . "\r\n".
+                "Reply-To: "     . $email                 . "\r\n".
+                'X-Mailer: PHP/' . phpversion();
 }
 
 if (!(empty($message) or empty($email))){

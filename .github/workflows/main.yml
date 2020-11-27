@@ -29,7 +29,7 @@ jobs:
           server: ec-hormersdorf.de
           username: web4236
           password: ${{ secrets.ftp_password }}
-          local-dir: /ECHomepage/
+          local-dir: ./ECHomepage/
           server-dir: /html/EC/
           exclude: prepos-6.config
           dry-run: true

@@ -23,13 +23,42 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2.3.2
 
-      # runs the ftp deploy action
+      # runs the ftp deploy action ECHomepage
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
           username: web4236
           password: ${{ secrets.ftp_password }}
           local-dir: ./ECHomepage/
-          server-dir: /html/EC/
-          exclude: prepos-6.config
+          server-dir: /html/ECHomepage/
+          dry-run: false
+          
+      # runs the ftp deploy action common -> ECHomepage
+      - uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ec-hormersdorf.de
+          username: web4236
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./common/
+          server-dir: /html/ECHomepage/common/
+          dry-run: false
+          
+      # runs the ftp deploy action LKG
+      - uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ec-hormersdorf.de
+          username: web4236
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./LKG/
+          server-dir: /html/LKG/
+          dry-run: false
+       
+       # runs the ftp deploy action common -> LKG
+      - uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ec-hormersdorf.de
+          username: web4236
+          password: ${{ secrets.ftp_password }}
+          local-dir: ./common/
+          server-dir: /html/LKG/common/
           dry-run: false

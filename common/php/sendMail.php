@@ -4,6 +4,8 @@ $email = "0";
 $subject = "0";
 $fname = "0";
 $lname = "0";
+$from = "0";
+$to = "0";
 
 function IsInjected($str)
 {
@@ -22,8 +24,8 @@ function IsInjected($str)
     return (preg_match($inject,$str));
 }
 
-$from    = 'kontaktformular@ec-hormersdorf.de';
-$to      = 'leitung@ec-hormersdorf.de';
+$to      = $_POST['targetemail']; //'leitung@ec-hormersdorf.de'
+$from    = $_POST['frommail']; //kontaktformular@ec-hormersdorf.de
 $subject = $_POST['subject'];
 //ab hier nur fuer PHP <5.2
 if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['fname'])) {

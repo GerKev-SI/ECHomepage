@@ -10,5 +10,6 @@ var lname = document.getElementById("lname").value;
 var email = document.getElementById("email").value;
 var subject = document.getElementById("subject").value;
 var message = document.getElementById("message").value;
-
+var frommail = document.getElementById("frommail").value;
+var targetemail = document.getElementById("targetemail").value;
 }

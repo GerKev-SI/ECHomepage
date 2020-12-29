@@ -6,7 +6,7 @@ name: FTPDeploy
 on:
   # Triggers the workflow on push request events but only for the gh-pages branch
   push:
-    branches: [ gh-pages ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

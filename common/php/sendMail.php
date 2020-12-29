@@ -64,5 +64,5 @@ if ($result){
     echo '</script>';
 }
 
-echo("<script>window.location = '../index.html';</script>");
+echo("<script>window.location = '../../index.html';</script>");
 ?>

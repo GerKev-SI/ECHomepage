@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: ./ECHomepage/
           server-dir: /html/ECHomepage/
-          dry-run: true
+          dry-run: false
           
       # runs the ftp deploy action common -> ECHomepage
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -41,7 +41,7 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: ./common/
           server-dir: /html/ECHomepage/common/
-          dry-run: true
+          dry-run: false
           
       # runs the ftp deploy action LKG
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -51,7 +51,7 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: ./LKG/
           server-dir: /html/LKG/
-          dry-run: true
+          dry-run: false
        
        # runs the ftp deploy action common -> LKG
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -61,4 +61,4 @@ jobs:
           password: ${{ secrets.ftp_password }}
           local-dir: ./common/
           server-dir: /html/LKG/common/
-          dry-run: true
+          dry-run: false

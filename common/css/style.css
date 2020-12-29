@@ -2,7 +2,9 @@
 html {
   overflow-x: hidden; }
 
-  :root { --main-ec-color: #94C356; }
+  /* wird von index.html definiert
+   :root { --main-ec-color: #94C356;} 
+   */
 
 body {
   line-height: 1.7;

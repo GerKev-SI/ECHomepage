@@ -44,9 +44,9 @@ if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{
 }
 //$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 if (!IsInjected($email)){
-    $headers  = "Content-type: text/plain; charset=utf-8" . "\r\n".
-                "From: "         . $from                  . "\r\n".
-                "Reply-To: "     . $email                 . "\r\n".
+    $headers  = 'Content-type: text/plain; charset=utf-8' . '\r\n'.
+                'From: '         . $from                  . '\r\n'.
+                'Reply-To: '     . $email                 . '\r\n'.
                 'X-Mailer: PHP/' . phpversion();
 }
 

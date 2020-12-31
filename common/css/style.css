@@ -639,8 +639,8 @@ body:after {
   position: relative; }
   .service:hover {
     -webkit-box-shadow: 0 8px 50px -5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 50px -5px rgba(0, 0, 0, 0.1);
-    top: -2px; }
+    box-shadow: 10px 8px 50px 100px rgba(0, 0, 0, 0.1);
+    top: -10px; }
   .service .service-number {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 60px;

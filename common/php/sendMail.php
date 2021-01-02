@@ -1,5 +1,5 @@
 <?php
-$message = "0";
+$message = "";
 $email = "0";
 $subject = "0";
 $fname = "0";
@@ -29,14 +29,19 @@ $from    = $_POST['frommail']; //kontaktformular@ec-hormersdorf.de
 $subject = $_POST['subject'];
 //ab hier nur fuer PHP <5.2
 if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['fname'])) {
-  if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['lname'])) {
-    if (preg_match("/^[a-zA-Z-_\,\.\!' \?]*$/",$_POST['message'])) {
-      $message = $_POST['fname'] . " " . $_POST['lname'] . " wrote the following:" . "\r\n" . $_POST['message'];
-    }
-  }
+  $message = "Vorname: " . $_POST['fname'] . "\r\n";
 }
+
+if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['lname'])) {
+  $message .= "Nachname: " . $_POST['lname'] . "\r\n";
+}
+
+$message .= "\r\n\r\n" . $_POST['message'];
+
+
 //$message = filter_var($message, FILTER_SANITIZE_STRING);
-$message = wordwrap($message, 70, "\r\n");
+$message = str_replace(array("<", ">", "/", "$", "\\", "%"), " ", $message)
+          .wordwrap($message, 70, "\r\n");
 
 //ab hier nur fuer PHP <5.2
 if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$_POST['email'])) {

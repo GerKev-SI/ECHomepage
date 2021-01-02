@@ -40,8 +40,8 @@ $message .= "\r\n\r\n" . $_POST['message'];
 
 
 //$message = filter_var($message, FILTER_SANITIZE_STRING);
-$message = str_replace(array("<", ">", "/", "$", "\\", "%"), " ", $message)
-          .wordwrap($message, 70, "\r\n");
+$message = str_replace(array("<", ">", "/", "$", "\\", "%"), " ", $message);
+$message = wordwrap($message, 70, "\r\n");
 
 //ab hier nur fuer PHP <5.2
 if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$_POST['email'])) {

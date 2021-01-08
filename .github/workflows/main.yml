@@ -27,7 +27,7 @@ jobs:
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: autodeploy
+          username: autodeploy@ec-hormersdorf.de
           password: ${{ secrets.ftp_autodeploy_ec }}
           local-dir: ./ECHomepage/
           server-dir: ./
@@ -37,7 +37,7 @@ jobs:
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: autodeploy
+          username: autodeploy@ec-hormersdorf.de
           password: ${{ secrets.ftp_autodeploy_ec }}
           local-dir: ./common/
           server-dir: /common/

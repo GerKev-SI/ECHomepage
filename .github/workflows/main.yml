@@ -27,38 +27,38 @@ jobs:
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: web4236
-          password: ${{ secrets.ftp_password }}
+          username: autodeploy@ec-hormersdorf.de
+          password: ${{ secrets.ftp_autodeploy_ec }}
           local-dir: ./ECHomepage/
-          server-dir: /html/ECHomepage/
+          server-dir: ./
           dry-run: false
           
       # runs the ftp deploy action common -> ECHomepage
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: web4236
-          password: ${{ secrets.ftp_password }}
+          username: autodeploy@ec-hormersdorf.de
+          password: ${{ secrets.ftp_autodeploy_ec }}
           local-dir: ./common/
-          server-dir: /html/ECHomepage/common/
+          server-dir: /common/
           dry-run: false
           
       # runs the ftp deploy action LKG
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: web4236
-          password: ${{ secrets.ftp_password }}
+          username: autodeploy@lkg-hormersdorf.de
+          password: ${{ secrets.ftp_autodeploy_lkg }}
           local-dir: ./LKG/
-          server-dir: /html/LKG/
+          server-dir: ./
           dry-run: false
        
        # runs the ftp deploy action common -> LKG
       - uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ec-hormersdorf.de
-          username: web4236
-          password: ${{ secrets.ftp_password }}
+          username: autodeploy@lkg-hormersdorf.de
+          password: ${{ secrets.ftp_autodeploy_lkg }}
           local-dir: ./common/
-          server-dir: /html/LKG/common/
+          server-dir: /common/
           dry-run: false

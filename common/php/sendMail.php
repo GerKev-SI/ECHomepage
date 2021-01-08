@@ -27,27 +27,17 @@ function IsInjected($str)
 $to      = $_POST['targetemail']; //'leitung@ec-hormersdorf.de'
 $from    = $_POST['frommail']; //kontaktformular@ec-hormersdorf.de
 $subject = $_POST['subject'];
-//ab hier nur fuer PHP <5.2
-if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['fname'])) {
-  $message = "Vorname: " . $_POST['fname'] . "\r\n";
-}
 
-if (preg_match("/^[a-zA-Z-' ]*$/",$_POST['lname'])) {
-  $message .= "Nachname: " . $_POST['lname'] . "\r\n";
-}
-
+$message = "Vorname: " . $_POST['fname'] . "\r\n";
+$message .= "Nachname: " . $_POST['lname'] . "\r\n";
+$message .= "Email: " . $_POST['email'] . "\r\n";
 $message .= "\r\n\r\n" . $_POST['message'];
 
-
-//$message = filter_var($message, FILTER_SANITIZE_STRING);
-$message = str_replace(array("<", ">", "/", "$", "\\", "%"), " ", $message);
+$message = filter_var($message, FILTER_SANITIZE_STRING);
 $message = wordwrap($message, 70, "\r\n");
 
-//ab hier nur fuer PHP <5.2
-if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i",$_POST['email'])) {
-  $email = $_POST['email'];
-}
-//$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+
 if (!IsInjected($email)){
     $headers  = "Content-type: text/plain; charset=utf-8" . "\r\n";
     $headers .= "Reply-To: "     . $email                 . "\r\n";

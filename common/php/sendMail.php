@@ -1,11 +1,5 @@
 <?php
-$message = "";
-$email = "0";
-$subject = "0";
-$fname = "0";
-$lname = "0";
-$from = "0";
-$to = "0";
+session_start();
 
 function IsInjected($str)
 {
@@ -24,40 +18,78 @@ function IsInjected($str)
     return (preg_match($inject,$str));
 }
 
-$to      = $_POST['targetemail']; //'leitung@ec-hormersdorf.de'
-$from    = $_POST['frommail']; //kontaktformular@ec-hormersdorf.de
-$subject = $_POST['subject'];
-
-$message = "Vorname: " . $_POST['fname'] . "\r\n";
-$message .= "Nachname: " . $_POST['lname'] . "\r\n";
-$message .= "Email: " . $_POST['email'] . "\r\n";
-$message .= "\r\n\r\n" . $_POST['message'];
-
-$message = filter_var($message, FILTER_SANITIZE_STRING);
-$message = wordwrap($message, 70, "\r\n");
-
-$email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-
-if (!IsInjected($email)){
-    $headers  = "Content-type: text/plain; charset=utf-8" . "\r\n";
-    $headers .= "Reply-To: "     . $email                 . "\r\n";
-    $headers .= "From: "         . $from                  . "\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion()           . "\r\n";
-}
-
-if (!(empty($message) or empty($email))){
-  $result = mail($to, $subject, $message, $headers);
-}
-
-if ($result){
-    echo '<script type="text/javascript">';
-    echo ' alert("Message succesfully send")';  //not showing an alert box.
-    echo '</script>';
-} else {
+function alert(){
     echo '<script type="text/javascript">';
     echo ' alert("Error sending message")';  //not showing an alert box.
     echo '</script>';
 }
+function success(){
+    echo '<script type="text/javascript">';
+    echo ' alert("Message succesfully send")';  //not showing an alert box.
+    echo '</script>';
+}
 
+// empty entspricht !isset($var) || $var==$false
+if (empty($_POST['targetemail'])
+||  empty($_POST['frommail']) 
+||  empty($_POST['fname']) 
+||  empty($_POST['lname']) 
+||  empty($_POST['email']) 
+||  empty($_POST['subject']) 
+||  empty($_POST['message']) 
+||  empty($_POST['captcha_challenge']) 
+||  empty($_SESSION['captcha_text'])) 
+ {
+    error_log("Variable empty");
+    alert();
+    echo("<script>window.location = '../../index.html';</script>");
+    //header('Location: ../../index.html');
+    exit;
+}
+
+if ($_POST['captcha_challenge'] != $_SESSION['captcha_text']) {
+    error_log("captcha challenge not accepted");
+    alert();
+    echo("<script>window.location = '../../index.html';</script>");
+    //header('Location: ../../index.html');
+    exit;
+}
+
+$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+$subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
+$fname = filter_var($_POST['fname'], FILTER_SANITIZE_STRING);
+$lname = filter_var($_POST['lname'], FILTER_SANITIZE_STRING);
+$from = filter_var($_POST['frommail'], FILTER_SANITIZE_STRING); //kontaktformular@ec-hormersdorf.de
+$to = filter_var($_POST['targetemail'], FILTER_SANITIZE_STRING);//'leitung@ec-hormersdorf.de'
+$usermessage = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+$usermessage = htmlspecialchars($usermessage);
+
+$message = "Vorname: " . $fname . "\r\n";
+$message .= "Nachname: " . $lname . "\r\n";
+$message .= "Betreff: " . $subject . "\r\n";
+$message .= "Email: " . $email . "\r\n";
+$message .= "\r\n\r\n" . $usermessage;
+
+$message = filter_var($message, FILTER_SANITIZE_STRING);
+$message = wordwrap($message, 70, "\r\n");
+
+if (IsInjected($email)){
+    error_log("Email is injected");
+    alert();
+    echo("<script>window.location = '../../index.html';</script>");
+    //header('Location: ../../index.html');
+    exit;
+}
+
+$headers  = "Content-type: text/plain; charset=utf-8" . "\r\n";
+$headers .= "Reply-To: "     . $email                 . "\r\n";
+$headers .= "From: "         . $from                  . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion()           . "\r\n";
+
+
+$result = mail($to, $subject, $message, $headers);
+
+//header('Location: ../../index.html');
+success();
 echo("<script>window.location = '../../index.html';</script>");
 ?>

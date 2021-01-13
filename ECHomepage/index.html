@@ -264,10 +264,10 @@
 
           <div class="row">
             <div class="form-group col-6">
-              <label for="captcha">Gib die Buchstaben aus dem Bild hier ein</label>
+              <label for="captcha">Gib die Buchstaben aus dem Bild ein</label>
               <img src="../common/php/captcha.php" alt="CAPTCHA" class="captcha-image">
               <br>
-              <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{5,}" required>
+              <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{3,10}" required>
             </div>
           </div>
 
@@ -276,11 +276,6 @@
               <input type="submit" class="btn btn-primary" value="Nachricht senden">
             </div>
           </div>
-
-          <div class="d none">
-            <input type="hidden" name="target" id="targetemail" class="d none" value="EC">
-          </div>
-
         </form>
       </div>
     </section>

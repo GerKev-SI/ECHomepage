@@ -68,3 +68,4 @@ function generateString($input, $strength = 10) {
  imagepng($image);
  imagedestroy($image);
  ?>
+ 

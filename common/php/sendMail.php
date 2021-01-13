@@ -31,7 +31,6 @@ function success(){
 
 // empty entspricht !isset($var) || $var==$false
 if (empty($_POST['targetemail'])
-||  empty($_POST['frommail']) 
 ||  empty($_POST['fname']) 
 ||  empty($_POST['lname']) 
 ||  empty($_POST['email']) 
@@ -59,10 +58,24 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
 $fname = filter_var($_POST['fname'], FILTER_SANITIZE_STRING);
 $lname = filter_var($_POST['lname'], FILTER_SANITIZE_STRING);
-$from = filter_var($_POST['frommail'], FILTER_SANITIZE_STRING); //kontaktformular@ec-hormersdorf.de
-$to = filter_var($_POST['targetemail'], FILTER_SANITIZE_STRING);//'leitung@ec-hormersdorf.de'
+$targetemail = filter_var($_POST['targetemail'], FILTER_SANITIZE_STRING);//'leitung@ec-hormersdorf.de'
 $usermessage = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 $usermessage = htmlspecialchars($usermessage);
+
+if ($targetemail === "EC") {
+    $to = "leitung@ec-hormersdorf.de";
+    $from = "kontaktformular@ec-hormersdorf.de";
+} else if ($targetemail === "EC")
+{
+    $to = "leitung@lkg-hormersdorf.de";
+    $from = "kontaktformular@lkg-hormersdorf.de";
+} else {
+    error_log("not allowed targetemail");
+    alert();
+    echo("<script>window.location = '../../index.html';</script>");
+    //header('Location: ../../index.html');
+    exit;
+}
 
 $message = "Vorname: " . $fname . "\r\n";
 $message .= "Nachname: " . $lname . "\r\n";
@@ -86,10 +99,10 @@ $headers .= "Reply-To: "     . $email                 . "\r\n";
 $headers .= "From: "         . $from                  . "\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion()           . "\r\n";
 
-
 $result = mail($to, $subject, $message, $headers);
 
-//header('Location: ../../index.html');
+//header('Location: ../../index.html?contactresponse=failed#contact-section');
+//header('Location: ../../index.html?contactresponse=succeeded#contact-section');
 success();
 echo("<script>window.location = '../../index.html';</script>");
 ?>

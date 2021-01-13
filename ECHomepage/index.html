@@ -219,20 +219,20 @@
             <h2 class="section-title text-center mb-5">Kontaktformular</h2>
           </div>
         </div>
-        <!--<section class="container" id="alerts">
-          <div class="alert alert-success" role="alert">
+        <section class="container" id="alerts">
+          <div class="alert alert-success" role="alert" id="mailSuccessAlert" style="display: none;">
             Die Anfrage wurde erfolgreich versendet.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="alert alert-danger" role="alert">
+          <div class="alert alert-danger" role="alert" id="mailFailAlert" style="display: none;">
             Die Anfrage konnte nicht gesendet werden.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-        </section>-->
+        </section>
         <form method="post" action="../common/php/sendMail.php" class="form">
           <div class="row mb-4">
             <div class="form-group col-6">
@@ -277,10 +277,8 @@
             </div>
           </div>
 
-
           <div class="d none">
-            <input type="hidden" name="targetemail" id="targetemail" class="d none" value="leitung@ec-hormersdorf.de">
-            <input type="hidden" name="frommail" id="frommail" class="d none" value="kontaktformular@ec-hormersdorf.de">
+            <input type="hidden" name="target" id="targetemail" class="d none" value="EC">
           </div>
 
         </form>
@@ -364,6 +362,7 @@
   <script src="../common/js/jquery.fancybox.min.js"></script>
   <script src="../common/js/jquery.sticky.js"></script>
   <script src="../common/js/isotope.pkgd.min.js"></script>
+  <script src="../common/js/mailResponse.js"></script>
 
 
   <script src="../common/js/main.js"></script>

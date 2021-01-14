@@ -457,7 +457,21 @@
             <h2 class="section-title text-center mb-5">Kontaktformular</h2>
           </div>
         </div>
-        <form method="post" action="../common/php/sendMail.php" onsubmit="return sendEmail(this);" class="form">
+        <section class="container" id="alerts">
+          <div class="alert alert-success" role="alert" id="mailSuccessAlert" style="display: none;">
+            Die Anfrage wurde erfolgreich versendet.
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="alert alert-danger" role="alert" id="mailFailAlert" style="display: none;">
+            Die Anfrage konnte nicht gesendet werden.
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </section>
+        <form method="post" action="../common/php/sendMail.php" class="form">
           <div class="row mb-4">
             <div class="form-group col-6">
               <input name="fname" type="text" id="fname" class="form-control" placeholder="Vorname">
@@ -487,17 +501,19 @@
           </div>
 
           <div class="row">
+            <div class="form-group col-6">
+              <label for="captcha">Gib die Buchstaben aus dem Bild ein</label>
+              <img src="../common/php/captcha.php" alt="CAPTCHA" class="captcha-image">
+              <br>
+              <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{3,10}" required>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-6">
               <input type="submit" class="btn btn-primary" value="Nachricht senden">
             </div>
           </div>
-
-          <div class="d none">
-            <input type="hidden" name="targetemail" id="targetemail" class="d none" value="leitung@lkg-hormersdorf.de">
-            <input type="hidden" name="frommail" id="frommail" class="d none"
-              value="kontaktformular@lkg-hormersdorf.de">
-          </div>
-
         </form>
       </div>
     </section>
@@ -579,6 +595,7 @@
   <script src="../common/js/jquery.fancybox.min.js"></script>
   <script src="../common/js/jquery.sticky.js"></script>
   <script src="../common/js/isotope.pkgd.min.js"></script>
+  <script src="../common/js/mailResponse.js"></script>
 
 
   <script src="../common/js/main.js"></script>

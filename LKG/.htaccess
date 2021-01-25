@@ -1,0 +1,18 @@
+<IfModule mod_headers.c>
+      Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^\.well-known/host-meta /cloud/public.php?service=host-meta [QSA,L]
+  RewriteRule ^\.well-known/host-meta\.json /cloud/public.php?service=host-meta-json [QSA,L]
+  RewriteRule ^\.well-known/webfinger /cloud/public.php?service=webfinger [QSA,L]
+  RewriteRule ^\.well-known/nodeinfo /cloud/public.php?service=nodeinfo [QSA,L]
+  RewriteRule ^\.well-known/carddav /cloud/remote.php/dav/ [R=301,L]
+  RewriteRule ^\.well-known/caldav /cloud/remote.php/dav/ [R=301,L]
+</IfModule>
+
+<IfModule mod_dir.c>
+  # hier kann der index.html link angepasst werden.
+  DirectoryIndex index.php index.html
+</IfModule>

@@ -81,5 +81,10 @@ $headers .= "X-Mailer: PHP/" . phpversion()           . "\r\n";
 
 $result = mail($to, $subject, $message, $headers);
 
-header('Location: ../../index.html?contactresponse=succeeded#contact-section');
+if ($result){
+  header('Location: ../../index.html?contactresponse=succeeded#contact-section');
+} else {
+  error_log("Sending of Email failed");
+  header('Location: ../../index.html?contactresponse=failed#contact-section');
+}
 ?>

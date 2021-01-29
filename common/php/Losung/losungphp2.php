@@ -90,14 +90,14 @@ $LphpJahrLang = date("Y");
 // $LphpTitel = "Losung und Lehrtext f&uuml;r " . $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName . " " . $LphpJahrLang . ":";
 //
 // Ihr Text:
-$LphpTitel = "Losung und Lehrtext f&uuml;r " . $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName . " " . $LphpJahrLang . ":";
+$LphpTitel = $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName . " " . $LphpJahrLang;
 
 
 // Datentext formatieren:
 // ======================
 //
 // Bibeltext Fett ausgeben: (1=fett  0=nicht fett)
-$LphpBibeltextFett = 1; 
+$LphpBibeltextFett = 0; 
 if($LphpBibeltextFett==1){
 	$Lphp[1] = "<b>" . $Lphp[1] . "</b>";
 	$Lphp[5] = "<b>" . $Lphp[5] . "</b>";
@@ -115,14 +115,14 @@ if($LphpBibelLink==1){
 // ======================
 
 // Überschrift: 
-if($LphpTitel != ""){echo $LphpTitel . "<br><br>";}
+if($LphpTitel != ""){echo $LphpTitel . "###";}
 
 // Losung:
-echo $Lphp[0] . $Lphp[1] . "<br>"; // Bibeltext
-echo $Lphp[2] . "<br><br>";        // Stellenangabe
+echo $Lphp[0] . $Lphp[1] . "###"; // Bibeltext
+echo $Lphp[2] . "###";        // Stellenangabe
 
 // Lehrtext:
-echo $Lphp[4] . $Lphp[5] . "<br>"; // Bibeltext
+echo $Lphp[4] . $Lphp[5] . "###"; // Bibeltext
 echo $Lphp[6];                     // Stellenangabe
 
 ?>

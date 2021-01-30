@@ -7,11 +7,11 @@ xhttp.onreadystatechange = function () {
             document.getElementById("LosungHeader").innerHTML = "Losung " + splitresult[0];
             document.getElementById("LosungContent").innerHTML = splitresult[1];
             document.getElementById("LosungFooter").innerHTML = "&mdash; " + splitresult[2];
-            document.getElementById("LosungFooter").href= splitresult[5];
+            document.getElementById("LosungFooter").href = splitresult[5];
             document.getElementById("LehrtextHeader").innerHTML = "Lehrtext " + splitresult[0];
             document.getElementById("LehrtextContent").innerHTML = splitresult[3];
             document.getElementById("LehrtextFooter").innerHTML = "&mdash; " + splitresult[4];
-            document.getElementById("LehrtextFooter").href= splitresult[6];
+            document.getElementById("LehrtextFooter").href = splitresult[6];
         }
     }
 };

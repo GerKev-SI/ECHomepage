@@ -1,6 +1,6 @@
 <?PHP
 // =================================
-// Script zum Einfügen der Losungen:
+// Script zum Einfï¿½gen der Losungen:
 // =================================
 
 
@@ -8,29 +8,29 @@
 // ==============
 
 // Bibeltext fett ausgeben: (1 = fett    0 = nicht fett)
-$LphpBibeltextFett = 1;
+$LphpBibeltextFett = 0;
 
 // Stellenangabe als Link zur Internetbibel: (1 = Link    0 = kein Link)
 $LphpBibelLink = 0;
 
-// Überschrift einfügen: ("" = keine Überschrift)
-$LphpTitelText = "Losung und Lehrtext für";
+// ï¿½berschrift einfï¿½gen: ("" = keine ï¿½berschrift)
+$LphpTitelText = "";
 
-// Datumsangabe allein oder hinter Überschrift:
+// Datumsangabe allein oder hinter ï¿½berschrift:
 $LphpTitelDatum = 2;
 
-// mögliche Werte: (Beispiel 04.02.2008)
+// mï¿½gliche Werte: (Beispiel 04.02.2008)
 // 0 = (keine Datumsangabe)
 // 1 = "04.02.2008"
 // 2 = "Montag, 4. Februar 2008"
 // 3 = "4. Februar 2008"
 
-// Doppelpunkt hinter Überschrift / Datum (1 = Doppelpunkt    0 = keiner)
-$LphpTitelDoppelpunkt = 1;
+// Doppelpunkt hinter ï¿½berschrift / Datum (1 = Doppelpunkt    0 = keiner)
+$LphpTitelDoppelpunkt = 0;
 
 
 // =================================================================
-// Den nachfolgenden Code bitte nur ändern, wenn Sie sich auskennen!
+// Den nachfolgenden Code bitte nur ï¿½ndern, wenn Sie sich auskennen!
 // =================================================================
 
 // Datendatei zum aktuellen Jahr ermitteln: 
@@ -46,17 +46,17 @@ if ($LphpFp){
 	$LphpLa = intval(substr($LphpPoLa, 6, 6));
 	fseek ($LphpFp, $LphpPo);
 	$LphpText = fread($LphpFp, $LphpLa);
-	$Lphp = explode("§", $LphpText);
+	$Lphp = explode("ï¿½", $LphpText);
 	fclose($LphpFp);
 }
 
-// Variablen für die Datumsangabe in der Überschrift
+// Variablen fï¿½r die Datumsangabe in der ï¿½berschrift
 // Wochentagsname: (z.B.: "Montag")
 $LphpWT = array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
 $LphpWochentagName = $LphpWT[date("w")];
 
 // Monatsname: (z.B.: "Februar")
-$LphpM = array("", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+$LphpM = array("", "Januar", "Februar", "Mï¿½rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
 $LphpMonatName = htmlentities($LphpM[date("n")]);
 
 // Tag als Zahl: (z.B.: kurz = "4" / lang = "04")
@@ -83,7 +83,7 @@ if($LphpBibelLink==1){
 	$Lphp[6] = "<a title='Zum Bibeltext' href='" . $Lphp[7] . "' target='_blank'>" . $Lphp[6] . "</a>";
 }
 
-// Überschrift zusammenstellen:
+// ï¿½berschrift zusammenstellen:
 $LphpTitel = "";
 if($LphpTitelText != ""){$LphpTitel = htmlentities(trim($LphpTitelText));}
 

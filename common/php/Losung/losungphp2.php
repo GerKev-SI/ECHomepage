@@ -77,7 +77,7 @@ $LphpJahrKurz = date("y");
 $LphpJahrLang = date("Y");
 
 
-// Überschrift zusammenstellen 
+// Überschrift zusammenstellen
 // ===========================
 //
 // Beispiel: "Losung und Lehrtext für heute:"
@@ -97,7 +97,7 @@ $LphpTitel = $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName .
 // ======================
 //
 // Bibeltext Fett ausgeben: (1=fett  0=nicht fett)
-$LphpBibeltextFett = 0; 
+$LphpBibeltextFett = 0;
 if($LphpBibeltextFett==1){
 	$Lphp[1] = "<b>" . $Lphp[1] . "</b>";
 	$Lphp[5] = "<b>" . $Lphp[5] . "</b>";
@@ -114,7 +114,7 @@ if($LphpBibelLink==1){
 // Textausgabe: (z.B. so)
 // ======================
 
-// Überschrift: 
+// Überschrift:
 if($LphpTitel != ""){echo $LphpTitel . "###";}
 
 // Losung:
@@ -123,6 +123,12 @@ echo $Lphp[2] . "###";        // Stellenangabe
 
 // Lehrtext:
 echo $Lphp[4] . $Lphp[5] . "###"; // Bibeltext
-echo $Lphp[6];                     // Stellenangabe
+echo $Lphp[6] . "###";                     // Stellenangabe
+
+//link Losungen
+echo $Lphp[3] . "###";  
+
+//link Lehrtext
+echo $Lphp[7];
 
 ?>

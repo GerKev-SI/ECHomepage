@@ -123,12 +123,6 @@ echo $Lphp[2] . "###";        // Stellenangabe
 
 // Lehrtext:
 echo $Lphp[4] . $Lphp[5] . "###"; // Bibeltext
-echo $Lphp[6] . "###";                     // Stellenangabe
-
-//link Losungen
-echo $Lphp[3] . "###";  
-
-//link Lehrtext
-echo $Lphp[7];
+echo $Lphp[6];                     // Stellenangabe
 
 ?>

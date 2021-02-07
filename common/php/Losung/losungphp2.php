@@ -1,11 +1,11 @@
 <?PHP
 // =================================
-// Script zum Einfügen der Losungen:
+// Script zum Einfï¿½gen der Losungen:
 // =================================
 //
 // TIPP: Zeigen Sie dieses Script im Windows-Editor (notepad.exe) an,
-// deaktivieren Sie im Menü "Format" die Funktion "Zeilenumbruch" und
-// wählen Sie die Schriftart "Courier New" - das erleichtert die Arbeit!
+// deaktivieren Sie im Menï¿½ "Format" die Funktion "Zeilenumbruch" und
+// wï¿½hlen Sie die Schriftart "Courier New" - das erleichtert die Arbeit!
 
 
 // Daten aus der Datendatei einlesen:
@@ -27,12 +27,12 @@ if ($LphpFp){
 	$LphpLa = intval(substr($LphpPoLa, 6, 6));
 	fseek ($LphpFp, $LphpPo);
 	$LphpText = fread($LphpFp, $LphpLa);
-	$Lphp = explode("§", $LphpText);
+	$Lphp = explode("ï¿½", $LphpText);
 	fclose($LphpFp);
 }
 
 // Die Losungsdaten liegen nun in folgenden Variablen vor:
-// $Lphp[0] = Vortext, der nicht zum Bibeltext gehört - z.B.: "Mose sagte: "
+// $Lphp[0] = Vortext, der nicht zum Bibeltext gehï¿½rt - z.B.: "Mose sagte: "
 // $Lphp[1] = Bibeltext der Losung
 // $Lphp[2] = Stellenangabe zur Losung
 // $Lphp[3] = Link zur Internetbibel
@@ -54,14 +54,14 @@ if ($LphpFp){
 // $Lphp[7] = "http://www.combib.de/bibel/ue/1kor3.html#9";
 
 
-// Variablen für die Datumsangabe in der Überschrift
+// Variablen fï¿½r die Datumsangabe in der ï¿½berschrift
 // =================================================
 // Wochentagsname: (z.B.: "Montag")
 $LphpWT = array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
 $LphpWochentagName = $LphpWT[date("w")];
 
 // Monatsname: (z.B.: "Februar")
-$LphpM = array("", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+$LphpM = array("", "Januar", "Februar", "Mï¿½rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
 $LphpMonatName = htmlentities($LphpM[date("n")]);
 
 // Tag als Zahl: (z.B.: kurz = "4" / lang = "04")
@@ -77,16 +77,16 @@ $LphpJahrKurz = date("y");
 $LphpJahrLang = date("Y");
 
 
-// Überschrift zusammenstellen 
+// ï¿½berschrift zusammenstellen
 // ===========================
 //
-// Beispiel: "Losung und Lehrtext für heute:"
+// Beispiel: "Losung und Lehrtext fï¿½r heute:"
 // $LphpTitel = "Losung und Lehrtext f&uuml;r heute:";
 //
 // Beispiel: "Losung und Lehrtext zum 04.02.2008:"
 // $LphpTitel = "Losung und Lehrtext zum " . $LphpTagLang . "." . $LphpMonatLang . "." . $LphpJahrLang . ":";
 //
-// Beispiel: "Losung und Lehrtext für Montag, 4. Februar 2008"
+// Beispiel: "Losung und Lehrtext fï¿½r Montag, 4. Februar 2008"
 // $LphpTitel = "Losung und Lehrtext f&uuml;r " . $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName . " " . $LphpJahrLang . ":";
 //
 // Ihr Text:
@@ -97,7 +97,7 @@ $LphpTitel = $LphpWochentagName  . ", " . $LphpTagKurz . ". " . $LphpMonatName .
 // ======================
 //
 // Bibeltext Fett ausgeben: (1=fett  0=nicht fett)
-$LphpBibeltextFett = 0; 
+$LphpBibeltextFett = 0;
 if($LphpBibeltextFett==1){
 	$Lphp[1] = "<b>" . $Lphp[1] . "</b>";
 	$Lphp[5] = "<b>" . $Lphp[5] . "</b>";
@@ -114,7 +114,7 @@ if($LphpBibelLink==1){
 // Textausgabe: (z.B. so)
 // ======================
 
-// Überschrift: 
+// ï¿½berschrift:
 if($LphpTitel != ""){echo $LphpTitel . "###";}
 
 // Losung:

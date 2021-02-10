@@ -1,11 +1,11 @@
 {
     "dir": "ltr",
-    "lang": "German",
+    "lang": "de-DE",
     "name": "Landeskirchliche Gemeinschaft Hormersdorf",
     "short_name": "LKG Hormersdorf ",
     "scope": "/",
     "display": "browser",
-    "start_url": "http://lkg-hormersdorf.de/",
+    "start_url": "https://lkg-hormersdorf.de/",
     "background_color": "#7ab51d",
     "theme_color": "transparent",
     "description": "Angebote von Christen der Landeskirchliche Gemeinschaft Hormersdorf",
@@ -13,6 +13,6 @@
     "related_applications": [],
     "prefer_related_applications": false,
     "icons": [],
-    "url": "http://lkg-hormersdorf.de/",
+    "url": "https://lkg-hormersdorf.de/",
     "screenshots": []
 }

@@ -487,14 +487,7 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="form-group col-6">
-              <label for="captcha">Gib die Buchstaben aus dem Bild ein</label>
-              <img src="../common/php/captcha.php" alt="CAPTCHA" class="captcha-image">
-              <br>
-              <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{3,10}" required>
-            </div>
-          </div>
+          <div class="h-captcha" data-sitekey="c8b254cb-fa65-415d-be54-ca0ad93a4cf7"></div>
 
           <div class="row">
             <div class="col-md-6">
@@ -577,7 +570,7 @@
 
 
   <script src="../common/js/main.js"></script>
-
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </body>
 
 </html>

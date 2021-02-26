@@ -1,5 +1,16 @@
 <?php
-session_start();
+#hcaptcha request
+$data = array(
+    'secret' => "",
+    'response' => $_POST['h-captcha-response']
+);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://hcaptcha.com/siteverify");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+$responseData = json_decode($response);
 
 function IsInjected($str)
 {
@@ -23,16 +34,14 @@ if (empty($_POST['fname'])
 ||  empty($_POST['lname']) 
 ||  empty($_POST['email']) 
 ||  empty($_POST['subject']) 
-||  empty($_POST['message']) 
-||  empty($_POST['captcha_challenge']) 
-||  empty($_SESSION['captcha_text'])) 
+||  empty($_POST['message'])) 
  {
     error_log("Variable empty");
     header('Location: ../../index.html?contactresponse=failed#contact-section');
     exit;
 }
 
-if ($_POST['captcha_challenge'] != $_SESSION['captcha_text']) {
+if (!$responseData->success) {
     error_log("captcha challenge not accepted");
     header('Location: ../../index.html?contactresponse=failed#contact-section');
     exit;

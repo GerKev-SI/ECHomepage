@@ -1,7 +1,7 @@
 <?php
 #hcaptcha request
 $data = array(
-    'secret' => "",
+    'secret' => $_SERVER['HCAPTCHA_KEY'],
     'response' => $_POST['h-captcha-response']
 );
 $ch = curl_init();

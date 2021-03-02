@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../common/css/aos.css">
 
   <link rel="stylesheet" href="../common/css/style.css">
+  <link rel="stylesheet" href="../common/css/additionalstyles.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -72,7 +73,7 @@
             </nav>
 
 
-            <div class="d-inline-block d-lg-none" style="position: relative; top: 3px;"><a href="#"
+            <div class="d-inline-block d-lg-none addsidemenu"><a href="#"
                 class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
 
           </div>
@@ -366,13 +367,11 @@
         </div>
         <div class="d-none d-md-block responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/dayGridMonth/now"
-            style="border-width:0" width="100%" height="900px" frameborder="0" scrolling="no"></iframe>
+            class = "addbrowsercalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/dayGridMonth/now"></iframe>
         </div>
         <div class="d-md-none responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/listMonth/now"
-            style="border-width:0" width="100%" height="600px" frameborder="0" scrolling="yes"></iframe>
+            class = "addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/listMonth/now"></iframe>
         </div>
         <div class="col-12 text-center">
             <p>
@@ -431,8 +430,7 @@
         </div>
         <div class="responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/s/PTwTj9qtPDXWR94"
-            style="border-width:0" width="100%" height="600" frameborder="0" scrolling="yes"></iframe>
+            class = "addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/s/PTwTj9qtPDXWR94"></iframe>
         </div>
       </div>
     </section>
@@ -445,13 +443,13 @@
           </div>
         </div>
         <section class="container" id="alerts">
-          <div class="alert alert-success" role="alert" id="mailSuccessAlert" style="display: none;">
+          <div class="alert alert-success adddisplaynone" role="alert" id="mailSuccessAlert">
             Die Anfrage wurde erfolgreich versendet.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="alert alert-danger" role="alert" id="mailFailAlert" style="display: none;">
+          <div class="alert alert-danger adddisplaynone" role="alert" id="mailFailAlert">
             Die Anfrage konnte nicht gesendet werden.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>

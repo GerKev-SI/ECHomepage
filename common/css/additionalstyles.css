@@ -1,0 +1,17 @@
+.addsidemenu {
+    position: relative;
+    top: 3px;
+}
+.addbrowsercalender {
+  width: 100%;
+  height: 800px;
+  position: relative
+}
+.addmobilecalender{
+  width: 100%;
+  height: 600px;
+  position: relative
+}
+.adddisplaynone {
+  display: none;
+}

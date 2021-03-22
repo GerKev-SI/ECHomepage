@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="../common/css/aos.css">
 
   <link rel="stylesheet" href="../common/css/style.css">
+  <link rel="stylesheet" href="../common/css/additionalstyles.css">
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -72,7 +73,7 @@
             </nav>
 
 
-            <div class="d-inline-block d-lg-none" style="position: relative; top: 3px;"><a href="#"
+            <div class="d-inline-block d-lg-none addsidemenu"><a href="#"
                 class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
 
           </div>
@@ -366,13 +367,11 @@
         </div>
         <div class="d-none d-md-block responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/dayGridMonth/now"
-            style="border-width:0" width="100%" height="900px" frameborder="0" scrolling="no"></iframe>
+            class="addbrowsercalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/dayGridMonth/now"></iframe>
         </div>
         <div class="d-md-none responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/listMonth/now"
-            style="border-width:0" width="100%" height="600px" frameborder="0" scrolling="yes"></iframe>
+            class="addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/listMonth/now"></iframe>
         </div>
         <div class="col-12 text-center">
             <p>
@@ -431,8 +430,7 @@
         </div>
         <div class="responsive-iframe-container">
           <iframe
-            src="https://www.server.lkg-hormersdorf.de/index.php/s/PTwTj9qtPDXWR94"
-            style="border-width:0" width="100%" height="600" frameborder="0" scrolling="yes"></iframe>
+            class="addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/s/PTwTj9qtPDXWR94"></iframe>
         </div>
       </div>
     </section>
@@ -445,13 +443,13 @@
           </div>
         </div>
         <section class="container" id="alerts">
-          <div class="alert alert-success" role="alert" id="mailSuccessAlert" style="display: none;">
+          <div class="alert alert-success adddisplaynone" role="alert" id="mailSuccessAlert">
             Die Anfrage wurde erfolgreich versendet.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="alert alert-danger" role="alert" id="mailFailAlert" style="display: none;">
+          <div class="alert alert-danger adddisplaynone" role="alert" id="mailFailAlert">
             Die Anfrage konnte nicht gesendet werden.
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
@@ -487,7 +485,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row mb-4">
             <div class="form-group col-6">
               <label for="captcha">Gib die Buchstaben aus dem Bild ein</label>
               <img src="../common/php/captcha.php" alt="CAPTCHA" class="captcha-image">
@@ -546,6 +544,8 @@
               <a href="./impressum.html">Impressum</a>
               <a> | </a>
               <a href="./datenschutz.html">Datenschutz&shy;erkl&auml;rung</a>
+              <a> | </a>
+              <a href="#" id="changePreferences">Cookieeinstellungen anpassen</a>
             </p>
             <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -561,6 +561,16 @@
     </footer>
 
   </div> <!-- .site-wrap -->
+  
+  <!-- Cookie Consent by https://www.CookieConsent.com -->
+  <script type="text/javascript" src="../common/js/cookie-consent.js"></script>
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"de","website_name":"LKG-Hormersdorf.de","change_preferences_selector":"#changePreferences","cookies_policy_url":"https://www.lkg-hormersdorf.de/datenschutz.html"});
+  });
+  </script>
+  <noscript>ePrivacy and GPDR Cookie Consent by <a href="https://www.CookieConsent.com/" rel="nofollow noopener">Cookie Consent</a></noscript>
+  <!-- End Cookie Consent by https://www.CookieConsent.com -->
 
   <script src="../common/js/jquery-3.5.1.min.js"></script>
   <script src="../common/js/jquery-ui.js"></script>
@@ -577,7 +587,6 @@
 
 
   <script src="../common/js/main.js"></script>
-
 </body>
 
 </html>

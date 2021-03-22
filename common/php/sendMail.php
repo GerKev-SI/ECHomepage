@@ -23,7 +23,7 @@ if (empty($_POST['fname'])
 ||  empty($_POST['lname']) 
 ||  empty($_POST['email']) 
 ||  empty($_POST['subject']) 
-||  empty($_POST['message']) 
+||  empty($_POST['message'])
 ||  empty($_POST['captcha_challenge']) 
 ||  empty($_SESSION['captcha_text'])) 
  {

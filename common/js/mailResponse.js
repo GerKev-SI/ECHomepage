@@ -8,12 +8,12 @@ if (urlParams.has('contactresponse')) {
         console.log("succeeded response");
         document.getElementById("mailAlert").style.display = "block";
         document.getElementById("mailAlert").classList.add('alert-success');
-        document.getElementById("mailAlertText").innerHTML = "Anfrage erfolgreich abgeschickt";
+        document.getElementById("mailAlertText").innerHTML = "Die Anfrage wurde erfolgreich abgeschickt";
     }
     else if (response == "failed") {
         console.log("failed response");
         document.getElementById("mailAlert").style.display = "block";
         document.getElementById("mailAlert").classList.add('alert-danger');
-        document.getElementById("mailAlertText").innerHTML = "Anfrage fehlgeschlagen!";
+        document.getElementById("mailAlertText").innerHTML = "Die Anfrage konnte nicht gesendet!";
     }
 }

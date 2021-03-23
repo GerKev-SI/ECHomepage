@@ -6,10 +6,14 @@ if (urlParams.has('contactresponse')) {
     console.log(response);
     if (response == "succeeded") {
         console.log("succeeded response");
-        document.getElementById("mailSuccessAlert").style.display = "block";
+        document.getElementById("mailAlert").style.display = "block";
+        document.getElementById("mailAlert").classList.add('alert-success');
+        document.getElementById("mailAlertText").innerHTML = "Anfrage erfolgreich abgeschickt";
     }
     else if (response == "failed") {
         console.log("failed response");
-        document.getElementById("mailFailAlert").style.display = "block";
+        document.getElementById("mailAlert").style.display = "block";
+        document.getElementById("mailAlert").classList.add('alert-danger');
+        document.getElementById("mailAlertText").innerHTML = "Anfrage fehlgeschlagen!";
     }
 }

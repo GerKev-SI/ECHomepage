@@ -2,7 +2,7 @@ const queryString = window.location.search; // holt den URL String hinter '?'
 const urlParams = new URLSearchParams(queryString); // interpretiert den Querystring
 
 //jquerry change html after page is ready
-$(window).load(function() {
+$(window).on('load', function(){
     if (urlParams.has('contactresponsesucceeded')) {
             console.log("succeeded response");
             document.getElementById("mailAlert").style.display = "block";

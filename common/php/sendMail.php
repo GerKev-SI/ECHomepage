@@ -28,13 +28,13 @@ if (empty($_POST['fname'])
 ||  empty($_SESSION['captcha_text'])) 
  {
     error_log("Variable empty");
-    header('Location: ../../index.html?contactresponse=failed#contact-section');
+    header('Location: ../../index.html?contactresponsefailed=Variable%20leer#contact-section');
     exit;
 }
 
 if ($_POST['captcha_challenge'] != $_SESSION['captcha_text']) {
     error_log("captcha challenge not accepted");
-    header('Location: ../../index.html?contactresponse=failed#contact-section');
+    header('Location: ../../index.html?contactresponsefailed=Captcha%20falsch#contact-section');
     exit;
 }
 
@@ -55,7 +55,7 @@ if (strpos($_SERVER['HTTP_HOST'], 'ec-hormersdorf.de') !== false) {
     $from = "kontaktformular@lkg-hormersdorf.de";
 } else {
     error_log("unknown targetmail");
-    header('Location: ../../index.html?contactresponse=failed#contact-section');
+    header('Location: ../../index.html?contactresponsefailed=Zielemail%20falsch#contact-section');
     exit;
 }
 
@@ -70,7 +70,7 @@ $message = wordwrap($message, 70, "\r\n");
 
 if (IsInjected($email)){
     error_log("Email is injected");
-    header('Location: ../../index.html?contactresponse=failed#contact-section');
+    header('Location: ../../index.html?contactresponsefailed=Email%20mit%20gefährlichem%20Code#contact-section');
     exit;
 }
 
@@ -82,9 +82,9 @@ $headers .= "X-Mailer: PHP/" . phpversion()           . "\r\n";
 $result = mail($to, $subject, $message, $headers);
 
 if ($result){
-  header('Location: ../../index.html?contactresponse=succeeded#contact-section');
+  header('Location: ../../index.html?contactresponsesucceeded#contact-section');
 } else {
   error_log("Sending of Email failed");
-  header('Location: ../../index.html?contactresponse=failed#contact-section');
+  header('Location: ../../index.html?contactresponsefailed=Senden%20fehlgeschlagen#contact-section');
 }
 ?>

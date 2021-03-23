@@ -10,7 +10,7 @@ $(window).load(function() {
             document.getElementById("mailAlertText").innerHTML = 'Die Anfrage wurde erfolgreich abgeschickt';
     }
     if (urlParams.has('contactresponsefailed')) {
-        const response = urlParams.get('contactresponsefailed'');
+        const response = urlParams.get('contactresponsefailed');
         console.log(response);
          document.getElementById("mailAlert").style.display = "block";
          document.getElementById("mailAlert").classList.add('alert-danger');

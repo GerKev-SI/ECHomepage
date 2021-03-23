@@ -16,7 +16,7 @@ $(window).load(function() {
             console.log("failed response");
             document.getElementById("mailAlert").style.display = "block";
             document.getElementById("mailAlert").classList.add('alert-danger');
-            document.getElementById("mailAlertText").innerHTML = "Die Anfrage konnte nicht gesendet!";
+            document.getElementById("mailAlertText").innerHTML = "Die Anfrage konnte nicht gesendet werden!";
         }
     }
 });

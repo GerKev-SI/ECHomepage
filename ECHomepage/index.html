@@ -230,20 +230,12 @@
             <h2 class="section-title text-center mb-5">Kontaktformular</h2>
           </div>
         </div>
-        <section class="container" id="alerts">
-          <div class="alert alert-success adddisplaynone" role="alert" id="mailSuccessAlert">
-            Die Anfrage wurde erfolgreich versendet.
+          <div class="alert adddisplaynone" role="alert" id="mailAlert">
+            <small id=mailAlertText> Die Anfrage konnte nicht gesendet werden.</small>
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="alert alert-danger adddisplaynone" role="alert" id="mailFailAlert">
-            Die Anfrage konnte nicht gesendet werden.
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </section>
         <form method="post" action="../common/php/sendMail.php" class="form">
           <div class="row mb-4">
             <div class="form-group col-6">

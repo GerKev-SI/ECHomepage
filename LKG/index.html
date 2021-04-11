@@ -367,11 +367,11 @@
         </div>
         <div class="d-none d-md-block responsive-iframe-container">
           <iframe
-            class="addbrowsercalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/dayGridMonth/now"></iframe>
+            class="addbrowsercalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/MbNob8MjxdMJsWmH-ooSwNtEP4TBGMXk2-sX7JP2GRxwGxz74T-YAmLoPggNNz38XdQ-C9pZcD3bHqcfAQq5/dayGridMonth/now"></iframe>
         </div>
         <div class="d-md-none responsive-iframe-container">
           <iframe
-            class="addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/Fzz3n3mpNE8pskgC-9kZPMDi5LGCRcXCL-F4S263MnGLdp3Hmk-YAmLoPggNNz38XdQ-3JFGB68MJfQPNm4x/listMonth/now"></iframe>
+            class="addmobilecalender" src="https://www.server.lkg-hormersdorf.de/index.php/apps/calendar/p/MbNob8MjxdMJsWmH-ooSwNtEP4TBGMXk2-sX7JP2GRxwGxz74T-YAmLoPggNNz38XdQ-C9pZcD3bHqcfAQq5/listMonth/now"></iframe>
         </div>
         <div class="col-12 text-center">
             <p>
@@ -442,20 +442,12 @@
             <h2 class="section-title text-center mb-5">Kontaktformular</h2>
           </div>
         </div>
-        <section class="container" id="alerts">
-          <div class="alert alert-success adddisplaynone" role="alert" id="mailSuccessAlert">
-            Die Anfrage wurde erfolgreich versendet.
+         <div class="alert adddisplaynone" role="alert" id="mailAlert">
+            <small id=mailAlertText></small>
             <button type="button" class="close" data-dismiss="alert" aria-label="close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="alert alert-danger adddisplaynone" role="alert" id="mailFailAlert">
-            Die Anfrage konnte nicht gesendet werden.
-            <button type="button" class="close" data-dismiss="alert" aria-label="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </section>
         <form method="post" action="../common/php/sendMail.php" class="form">
           <div class="row mb-4">
             <div class="form-group col-6">

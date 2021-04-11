@@ -1,15 +1,19 @@
 const queryString = window.location.search; // holt den URL String hinter '?'
 const urlParams = new URLSearchParams(queryString); // interpretiert den Querystring
 
-if (urlParams.has('contactresponse')) {
-    const response = urlParams.get('contactresponse');
-    console.log(response);
-    if (response == "succeeded") {
-        console.log("succeeded response");
-        document.getElementById("mailSuccessAlert").style.display = "block";
+//jquerry change html after page is ready
+$(window).on('load', function(){
+    if (urlParams.has('contactresponsesucceeded')) {
+            console.log("succeeded response");
+            document.getElementById("mailAlert").style.display = "block";
+            document.getElementById("mailAlert").classList.add('alert-success');
+            document.getElementById("mailAlertText").innerHTML = 'Die Anfrage wurde erfolgreich abgeschickt';
     }
-    else if (response == "failed") {
-        console.log("failed response");
-        document.getElementById("mailFailAlert").style.display = "block";
+    if (urlParams.has('contactresponsefailed')) {
+        const response = urlParams.get('contactresponsefailed');
+        console.log(response);
+         document.getElementById("mailAlert").style.display = "block";
+         document.getElementById("mailAlert").classList.add('alert-danger');
+         document.getElementById("mailAlertText").innerHTML = 'Die Anfrage konnte nicht gesendet werden! ' + response;
     }
-}
+});

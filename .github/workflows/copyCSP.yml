@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CopyCSP
+name: CopyCSPDaily
 
 # Controls when the workflow will run
 on:
@@ -14,19 +14,24 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  Copy:
+  CopyCSP:
+    name: 🎉 Copy CSP
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
 
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      
       # runs the ftp deploy action Server LKGHomepage
-      - uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: lkg-hormersdorf.de
-          username: autodeplopyserver@lkg-hormersdorf.de
-          password: ${{ secrets.ftp_autodeploy_server_lkg }}
-          local-dir: NextcloudFiles/ContentSecurityPolicy.php
-          server-dir: ./lib/public/AppFramework/Http
-          dry-run: true
+      with:
+        server: lkg-hormersdorf.de
+        username: autodeplopyserver@lkg-hormersdorf.de
+        password: ${{ secrets.ftp_autodeploy_server_lkg }}
+        local-dir: NextcloudFiles/ContentSecurityPolicy.php
+        server-dir: ./lib/public/AppFramework/Http
+        dry-run: true

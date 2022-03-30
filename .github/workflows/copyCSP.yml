@@ -33,5 +33,5 @@ jobs:
         username: autodeplopyserver@lkg-hormersdorf.de
         password: ${{ secrets.ftp_autodeploy_server_lkg }}
         local-dir: ./NextcloudFiles/ContentSecurityPolicy.php
-        server-dir: ./lib/public/AppFramework/Http
+        server-dir: ./
         dry-run: true

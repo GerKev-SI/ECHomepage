@@ -34,4 +34,4 @@ jobs:
         password: ${{ secrets.ftp_autodeploy_server_lkg }}
         local-dir: ./NextcloudFiles/CSP/
         server-dir: ./
-        dry-run: true
+        dry-run: false

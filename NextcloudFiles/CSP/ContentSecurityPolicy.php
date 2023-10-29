@@ -23,7 +23,6 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>
  *
  */
-
 namespace OCP\AppFramework\Http;
 
 /**
@@ -36,7 +35,7 @@ namespace OCP\AppFramework\Http;
  * notice that Nextcloud ships already with sensible defaults and those policies
  * should require no modification at all for most use-cases.
  *
- * This class allows unsafe-eval of javascript and unsafe-inline of CSS.
+ * This class allows unsafe-inline of CSS.
  *
  * @since 8.1.0
  */
@@ -45,6 +44,8 @@ class ContentSecurityPolicy extends EmptyContentSecurityPolicy {
 	protected $inlineScriptAllowed = false;
 	/** @var bool Whether eval in JS scripts is allowed */
 	protected $evalScriptAllowed = false;
+	/** @var bool Whether strict-dynamic should be set */
+	protected $strictDynamicAllowed = false;
 	/** @var array Domains from which scripts can get loaded */
 	protected $allowedScriptDomains = [
 		'\'self\'',
@@ -76,27 +77,25 @@ class ContentSecurityPolicy extends EmptyContentSecurityPolicy {
 		'https://*.lkg-hormersdorf.de',
 	];
 	/** @var array Domains from which object elements can be loaded */
-	protected $allowedObjectDomains = [
-    ];
+	protected $allowedObjectDomains = [];
 	/** @var array Domains from which iframes can be loaded */
 	protected $allowedFrameDomains = [
-    	'https://*.ec-hormersdorf.de',
-      'https://*.lkg-hormersdorf.de',
-    ];
+		'https://*.ec-hormersdorf.de',
+		'https://*.lkg-hormersdorf.de',
+	];
 	/** @var array Domains from which fonts can be loaded */
 	protected $allowedFontDomains = [
 		'\'self\'',
 		'data:',
 	];
 	/** @var array Domains from which web-workers and nested browsing content can load elements */
-	protected $allowedChildSrcDomains = [
-    ];
+	protected $allowedChildSrcDomains = [];
 
 	/** @var array Domains which can embed this Nextcloud instance */
 	protected $allowedFrameAncestors = [
 		'\'self\'',
-        'https://*.ec-hormersdorf.de',
-        'https://*.lkg-hormersdorf.de',
+		'https://*.ec-hormersdorf.de',
+		'https://*.lkg-hormersdorf.de',
 	];
 
 	/** @var array Domains from which web-workers can be loaded */

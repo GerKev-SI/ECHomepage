@@ -21,10 +21,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # runs the ftp deploy action ECHomepage
-      - uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ec-hormersdorf.de
           username: autodeploy@ec-hormersdorf.de
@@ -34,7 +34,7 @@ jobs:
           dry-run: false
           
       # runs the ftp deploy action common -> ECHomepage
-      - uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ec-hormersdorf.de
           username: autodeploy@ec-hormersdorf.de
@@ -44,7 +44,7 @@ jobs:
           dry-run: false
           
       # runs the ftp deploy action LKG
-      - uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ec-hormersdorf.de
           username: autodeploy@lkg-hormersdorf.de
@@ -54,7 +54,7 @@ jobs:
           dry-run: false
        
        # runs the ftp deploy action common -> LKG
-      - uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ec-hormersdorf.de
           username: autodeploy@lkg-hormersdorf.de

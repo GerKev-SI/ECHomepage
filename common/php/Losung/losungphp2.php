@@ -126,14 +126,14 @@ if($LphpBibelLink==1){
 // ======================
 
 // �berschrift: 
-if($LphpTitel != ""){echo $LphpTitel . "<br><br>";}
+if($LphpTitel != ""){echo $LphpTitel . "###";}
 
 // Losung:
-echo $Lphp[0] . $Lphp[1] . "<br>"; // Bibeltext
-echo $Lphp[2] . "<br><br>";        // Stellenangabe
+echo $Lphp[0] . $Lphp[1] . "###"; // Bibeltext
+echo $Lphp[2] . "###";        // Stellenangabe
 
 // Lehrtext:
-echo $Lphp[4] . $Lphp[5] . "<br>"; // Bibeltext
+echo $Lphp[4] . $Lphp[5] . "###"; // Bibeltext
 echo $Lphp[6];                     // Stellenangabe
 
 ?>

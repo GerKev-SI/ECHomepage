@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # runs the ftp deploy action ECHomepage
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ec-hormersdorf.de
           username: autodeploy@ec-hormersdorf.de
@@ -34,7 +34,7 @@ jobs:
           dry-run: false
           
       # runs the ftp deploy action common -> ECHomepage
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ec-hormersdorf.de
           username: autodeploy@ec-hormersdorf.de
@@ -44,7 +44,7 @@ jobs:
           dry-run: false
           
       # runs the ftp deploy action LKG
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ec-hormersdorf.de
           username: autodeploy@lkg-hormersdorf.de
@@ -54,7 +54,7 @@ jobs:
           dry-run: false
        
        # runs the ftp deploy action common -> LKG
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ec-hormersdorf.de
           username: autodeploy@lkg-hormersdorf.de

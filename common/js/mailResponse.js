@@ -11,9 +11,10 @@ $(window).on('load', function(){
     }
     if (urlParams.has('contactresponsefailed')) {
         const response = urlParams.get('contactresponsefailed');
+        const clean = DOMPurify.sanitize(response);
         console.log(response);
          document.getElementById("mailAlert").style.display = "block";
          document.getElementById("mailAlert").classList.add('alert-danger');
-         document.getElementById("mailAlertText").innerHTML = 'Die Anfrage konnte nicht gesendet werden! ' + response;
+         document.getElementById("mailAlertText").innerHTML = 'Die Anfrage konnte nicht gesendet werden! ' + clean;
     }
 });

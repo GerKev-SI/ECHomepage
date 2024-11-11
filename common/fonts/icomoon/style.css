@@ -1353,6 +1353,9 @@
 .icon-fax:before {
   content: "\f1ac";
 }
+.icon-house:before {
+  content: "\f015";
+}
 .icon-building:before {
   content: "\f1ad";
 }

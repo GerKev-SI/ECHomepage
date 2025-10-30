@@ -4,7 +4,7 @@ function generateString($input, $strength = 10) {
      $input_length = strlen($input);
      $random_string = '';
      for($i = 0; $i < $strength; $i++) {
-         $random_character = $input[mt_rand(0, $input_length - 1)];
+         $random_character = $input[random_int(0, $input_length - 1)];
          $random_string .= $random_character;
      }
    
@@ -41,7 +41,11 @@ function generateString($input, $strength = 10) {
    $white = imagecolorallocate($image, 255, 255, 255);
    $textcolors = [$black, $white];
     
-   $fonts = ['../fonts/open-sans-v18-latin-300.ttf', '../fonts/open-sans-v18-latin-300.ttf'];
+   $fonts = [
+     __DIR__ . '/../fonts/open-sans-v18-latin-300.ttf',
+     __DIR__ . '/../fonts/open-sans-v18-latin-regular.ttf',
+     __DIR__ . '/../fonts/open-sans-v18-latin-700.ttf'
+   ];
    
    $length = strlen($letters);
    for($i = 0; $i < $length; $i++) {
@@ -63,6 +67,7 @@ function generateString($input, $strength = 10) {
  addLettersToImage($image, $captcha_string);
  
  $_SESSION['captcha_text'] = $captcha_string;
+ $_SESSION['captcha_time'] = time(); // Store creation timestamp
  
  header('Content-type: image/png');
  imagepng($image);

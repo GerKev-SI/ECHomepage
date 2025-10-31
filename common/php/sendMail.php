@@ -32,11 +32,22 @@ if (empty($_POST['fname'])
     exit;
 }
 
+// Check captcha expiration (30 minutes = 1800 seconds)
+if (!isset($_SESSION['captcha_time']) || (time() - $_SESSION['captcha_time']) > 1800) {
+    error_log("captcha expired");
+    header('Location: ../../index.html?contactresponsefailed=Captcha%20abgelaufen#contact-section');
+    exit;
+}
+
 if ($_POST['captcha_challenge'] != $_SESSION['captcha_text']) {
     error_log("captcha challenge not accepted");
     header('Location: ../../index.html?contactresponsefailed=Captcha%20falsch#contact-section');
     exit;
 }
+
+// Clear captcha data after successful validation to prevent reuse
+unset($_SESSION['captcha_text']);
+unset($_SESSION['captcha_time']);
 
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);

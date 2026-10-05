@@ -1,9 +1,0 @@
-<IfModule mod_headers.c>
-    # 1. Den veralteten Frame-Blocker entfernen
-    Header always unset X-Frame-Options
-    Header unset X-Frame-Options
-
-    # 2. Nextclouds Content-Security-Policy (CSP) um Ihre Website erweitern
-    Header always edit Content-Security-Policy "frame-ancestors 'self'" "frame-ancestors 'self' https://lkg-hormersdorf.de https://www.lkg-hormersdorf.de"
-    Header edit Content-Security-Policy "frame-ancestors 'self'" "frame-ancestors 'self' https://lkg-hormersdorf.de https://www.lkg-hormersdorf.de"
-</IfModule>

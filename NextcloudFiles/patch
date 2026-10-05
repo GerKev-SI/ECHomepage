@@ -1,1 +1,0 @@
-sed -i "s|'\\\\\'self\\\\\'',|'\\\\\'self\\\\\'',\n\t\t'https://*.lkg-hormersdorf.de',\n\t\t'https://lkg-hormersdorf.de',|g" /home/lkghorme/domains/serverlkg-hormersdorf.de/lib/public/AppFramework/Http/ContentSecurityPolicy.php

@@ -8,7 +8,7 @@ if (!file_exists($file)) {
 $content = file_get_contents($file);
 
 // Check if our domain is already patched into allowedFrameAncestors
-if (!str_contains($content, 'https://lkg-hormersdorf.de')) {
+if (!str_contains($content, 'https://*.lkg-hormersdorf.de')) {
     
     // 1. Target ONLY the $allowedFrameAncestors array
     $frameAncestorsPattern = '/(protected\s+\$allowedFrameAncestors\s*=\s*\[\s*\'\\\\\'self\\\\\'\',)/';
